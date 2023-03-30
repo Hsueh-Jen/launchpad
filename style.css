@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 1vh;
+	margin: 1vh;
+	height: 98vh;
+}
+
+.grid-container>button {
+	text-align: center;
+	font-size: 6vh;
+	border-radius: 10px;
+}
+
+.grid-container>button:active {
+	transform: translateY(3px);
+}
+
+#btn-cutscenes {
+	background: #93BFCF;
+}
+
+#btn-ticktock {
+	background: #FCFFE7;
+}
+
+#btn-opening {
+	background: #BBD6B8;
+}
+
+#btn-stop {
+	background: lightgray;
+}
+
+#btn-ring {
+	background: #F7DB6A;
+	grid-column: 1 / 3;
+}

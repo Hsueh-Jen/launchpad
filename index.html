@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="launchpad">
+	<link rel="stylesheet" href="style.css">
+	<title>launchpad</title>
+	<script>
+		const buzzer = new Audio("./audio/buzzer.mp3");
+		const opening = new Audio("./audio/opening.mp3");
+		const cutscenes = new Audio("./audio/cutscenes.mp3");
+		const ticktock = new Audio("./audio/ticktock.mp3");
+		
+		function stopAllAudio() {
+			buzzer.pause();
+			opening.pause();
+			cutscenes.pause();
+			ticktock.pause();
+			buzzer.currentTime=0;
+			opening.currentTime=0;
+			cutscenes.currentTime=0;
+			ticktock.currentTime=0;
+		}
+
+		function playAudio(filename) {
+			stopAllAudio();
+			eval(filename).play();
+			// 開場 Upbeat Funk Rock by Infraction [No Copyright Music] / Saturday
+			// 過場 Sour Tennessee Red (Sting) - John Deley and the 41 Players
+		}
+	</script>
+</head>
+
+<body>
+	<div class="grid-container">
+		<button id="btn-stop" onclick="stopAllAudio();">🔕<br>音樂停止</button>
+		<button id="btn-opening" onclick='playAudio("opening");'>🎊<br>開場音樂</button>
+		<button id="btn-ticktock" onclick='playAudio("ticktock");'>⌛<br>倒數音效</button>
+		<button id="btn-cutscenes" onclick='playAudio("cutscenes");'>🎵<br>過場音樂</button>
+		<button id="btn-ring" onclick='playAudio("buzzer");'>🛎<br>鈴聲</button>
+	</div>
+</body>
+
+</html>
