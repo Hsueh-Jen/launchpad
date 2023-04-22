@@ -18,6 +18,10 @@ span{
 	text-align: center;
 	font-size: 6vh;
 	border-radius: 10px;
+	background-image: linear-gradient(to right, rgba(128, 128, 128, 0.2), rgba(128, 128, 128, 0.2));
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	transition: background-size .1s linear ;
 }
 
 .grid-container>button:active {
@@ -25,22 +29,22 @@ span{
 }
 
 #btn-cutscenes {
-	background: #93BFCF;
+	background-color: #93BFCF;
 }
 
 #btn-ticktock {
-	background: #FCFFE7;
+	background-color: #FCFFE7;
 }
 
 #btn-opening {
-	background: #BBD6B8;
+	background-color: #BBD6B8;
 }
 
 #btn-stop {
-	background: lightgray;
+	background-color: lightgray;
 }
 
-#btn-ring {
-	background: #F7DB6A;
+#btn-buzzer {
+	background-color: #F7DB6A;
 	grid-column: 1 / 3;
-}
+} 

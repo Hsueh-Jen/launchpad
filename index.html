@@ -13,16 +13,20 @@
 		const opening = new Audio("./audio/opening.mp3");
 		const cutscenes = new Audio("./audio/cutscenes.mp3");
 		const ticktock = new Audio("./audio/ticktock.mp3");
-		
+
 		function stopAllAudio() {
 			buzzer.pause();
 			opening.pause();
 			cutscenes.pause();
 			ticktock.pause();
-			buzzer.currentTime=0;
-			opening.currentTime=0;
-			cutscenes.currentTime=0;
-			ticktock.currentTime=0;
+			buzzer.currentTime = 0;
+			opening.currentTime = 0;
+			cutscenes.currentTime = 0;
+			ticktock.currentTime = 0;
+			addProgress(buzzer,"btn-buzzer");
+			addProgress(opening,"btn-opening");
+			addProgress(cutscenes,"btn-cutscenes");
+			addProgress(ticktock,"btn-ticktock");
 		}
 
 		function playAudio(filename) {
@@ -31,6 +35,22 @@
 			// 開場 Upbeat Funk Rock by Infraction [No Copyright Music] / Saturday
 			// 過場 Sour Tennessee Red (Sting) - John Deley and the 41 Players
 		}
+
+		function addProgress(audio, btnId) {
+			audio.addEventListener('timeupdate', function () {
+				var progress = (audio.currentTime / audio.duration) * 100;
+				playBtn = document.getElementById(btnId);
+				playBtn.style.backgroundSize = progress + "% 100%";
+			});
+
+			audio.addEventListener("ended", () => {
+				playBtn = document.getElementById(btnId);
+				setTimeout(function () {
+					playBtn.style.backgroundSize = "0% 100%";
+				}, 100);
+			});
+		}
+
 	</script>
 </head>
 
@@ -40,7 +60,7 @@
 		<button id="btn-opening" onclick='playAudio("opening");'>🎊<br>開場<span>音樂</span></button>
 		<button id="btn-ticktock" onclick='playAudio("ticktock");'>⌛<br>倒數<span>音效</span></button>
 		<button id="btn-cutscenes" onclick='playAudio("cutscenes");'>🎵<br>過場<span>音樂</span></button>
-		<button id="btn-ring" onclick='playAudio("buzzer");'>🛎<br>鈴聲</button>
+		<button id="btn-buzzer" onclick='playAudio("buzzer");'>🛎<br>鈴聲</button>
 	</div>
 </body>
 
