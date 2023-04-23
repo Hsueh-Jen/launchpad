@@ -12,21 +12,21 @@
 		const buzzer = new Audio("./audio/buzzer.mp3");
 		const opening = new Audio("./audio/opening.mp3");
 		const cutscenes = new Audio("./audio/cutscenes.mp3");
-		const ticktock = new Audio("./audio/ticktock.mp3");
+		const breakingnews = new Audio("./audio/breakingnews.mp3");
 
 		function stopAllAudio() {
 			buzzer.pause();
 			opening.pause();
 			cutscenes.pause();
-			ticktock.pause();
+			breakingnews.pause();
 			buzzer.currentTime = 0;
 			opening.currentTime = 0;
 			cutscenes.currentTime = 0;
-			ticktock.currentTime = 0;
+			breakingnews.currentTime = 0;
 			addProgress(buzzer,"btn-buzzer");
 			addProgress(opening,"btn-opening");
 			addProgress(cutscenes,"btn-cutscenes");
-			addProgress(ticktock,"btn-ticktock");
+			addProgress(breakingnews,"btn-breakingnews");
 		}
 
 		function playAudio(filename) {
@@ -58,7 +58,7 @@
 	<div class="grid-container">
 		<button id="btn-stop" onclick="stopAllAudio();">🔕<br>音樂<span>停止</span></button>
 		<button id="btn-opening" onclick='playAudio("opening");'>🎊<br>開場<span>音樂</span></button>
-		<button id="btn-ticktock" onclick='playAudio("ticktock");'>⌛<br>倒數<span>音效</span></button>
+		<button id="btn-breakingnews" onclick='playAudio("breakingnews");'>新聞<span>音效</span></button>
 		<button id="btn-cutscenes" onclick='playAudio("cutscenes");'>🎵<br>過場<span>音樂</span></button>
 		<button id="btn-buzzer" onclick='playAudio("buzzer");'>🛎<br>鈴聲</button>
 	</div>
