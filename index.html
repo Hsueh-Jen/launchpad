@@ -13,20 +13,26 @@
 		const opening = new Audio("./audio/opening.mp3");
 		const cutscenes = new Audio("./audio/cutscenes.mp3");
 		const breakingnews = new Audio("./audio/breakingnews.mp3");
-
+		const murder = new Audio("./audio/murder.mp3");
+		
 		function stopAllAudio() {
 			buzzer.pause();
 			opening.pause();
 			cutscenes.pause();
 			breakingnews.pause();
+			murder.pause();
+			
 			buzzer.currentTime = 0;
 			opening.currentTime = 0;
 			cutscenes.currentTime = 0;
 			breakingnews.currentTime = 0;
+			murder.currentTime = 0;
+
 			addProgress(buzzer,"btn-buzzer");
 			addProgress(opening,"btn-opening");
 			addProgress(cutscenes,"btn-cutscenes");
 			addProgress(breakingnews,"btn-breakingnews");
+			addProgress(murder,"btn-murder");
 		}
 
 		function playAudio(filename) {
@@ -58,9 +64,10 @@
 	<div class="grid-container">
 		<button id="btn-stop" onclick="stopAllAudio();">🔕<br>音樂<span>停止</span></button>
 		<button id="btn-opening" onclick='playAudio("opening");'>🎊<br>開場<span>音樂</span></button>
-		<button id="btn-breakingnews" onclick='playAudio("breakingnews");'>新聞<span>音效</span></button>
+		<button id="btn-breakingnews" onclick='playAudio("breakingnews");'>📰<br>新聞<span>音樂</span></button>
 		<button id="btn-cutscenes" onclick='playAudio("cutscenes");'>🎵<br>過場<span>音樂</span></button>
-		<button id="btn-buzzer" onclick='playAudio("buzzer");'>🛎<br>鈴聲</button>
+		<button id="btn-murder" onclick='playAudio("murder");'>🔪<br>兇殺<span>音樂</span></button>
+		<button id="btn-buzzer" onclick='playAudio("buzzer");'>🚨<br>答錯聲</button>
 	</div>
 </body>
 
